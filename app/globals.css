@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=Space+Mono:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --green: #3ECF8E;
+  --dark: #0F0F0F;
+  --card: #161616;
+  --border: #242424;
+  --muted: #555;
+  --text: #E8E8E8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  background: var(--dark);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--dark); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--muted); }
+
+/* Selection */
+::selection { background: var(--green); color: #000; }
+
+@layer utilities {
+  .glass {
+    background: rgba(22, 22, 22, 0.8);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--border);
+  }
+
+  .btn-primary {
+    @apply bg-[#3ECF8E] text-black font-semibold px-4 py-2.5 rounded-lg 
+    hover:bg-[#34B97A] active:scale-[0.98] transition-all duration-150
+    disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply bg-transparent text-[#E8E8E8] font-medium px-4 py-2.5 rounded-lg 
+    border border-[#242424] hover:border-[#3ECF8E] hover:text-[#3ECF8E]
+    active:scale-[0.98] transition-all duration-150;
+  }
+
+  .input-field {
+    @apply w-full bg-[#1A1A1A] border border-[#242424] rounded-lg px-4 py-2.5
+    text-[#E8E8E8] placeholder-[#555] text-sm
+    focus:outline-none focus:border-[#3ECF8E] focus:ring-1 focus:ring-[#3ECF8E]/20
+    transition-all duration-150;
+  }
+
+  .card {
+    @apply bg-[#161616] border border-[#242424] rounded-xl;
+  }
+}
